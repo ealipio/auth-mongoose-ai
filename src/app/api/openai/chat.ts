@@ -31,7 +31,7 @@ const handler = async (req: Request): Promise<Response> => {
       presence_penalty: 0,
       stream: true,
       n: 1,
-    })
+    }),
   );
 };
 

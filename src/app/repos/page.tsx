@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 async function fetchRepos() {
   const options = {
@@ -29,7 +29,7 @@ export interface IReposProps {}
 const Repository = ({ repository }: { repository: IRepository }) => {
   return (
     <div
-      className="bg-black rounded-md border-green-500 border-2 text-indigo-400 p-4 m-4"
+      className="m-4 rounded-md border-2 border-green-500 bg-black p-4 text-indigo-400"
       key={repository.id}
     >
       <p>{repository.name}</p>
@@ -49,7 +49,7 @@ export default async function Repos(props: IReposProps) {
   const repositories: IRepository[] = await fetchRepos();
 
   return (
-    <div className="h-screen bg-black text-lime-400 p-4">
+    <div className="h-screen bg-black p-4 text-lime-400">
       <h3>Welcome to my Repos</h3>
       <RepositoryList repositories={repositories} />
     </div>

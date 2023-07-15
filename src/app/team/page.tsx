@@ -1,4 +1,4 @@
-import Chat from '@/components/chat/chat-box';
+import Chat from "@/components/chat/chat-box";
 
 interface User {
   _id: string;
@@ -13,9 +13,9 @@ const fetchOptions = { next: { revalidate: 10 } };
 //const fetchOptions = { cache: 'no-store' };
 
 async function getUsersLogged() {
-  const response = await fetch('http://localhost:3000/api/auth', fetchOptions);
+  const response = await fetch("http://localhost:3000/api/auth", fetchOptions);
   if (!response.ok) {
-    throw new Error('Failed to fetch data');
+    throw new Error("Failed to fetch data");
   }
   return response.json();
 }
@@ -24,8 +24,8 @@ export default async function Home() {
   const users = await getUsersLogged();
 
   return (
-    <div className="flex flex-col bg-gray-50 min-h-screen items-center justify-center">
-      <div className="bg-slate-400 p-4 rounded-md text-white antialiased w-72 text-sm">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-gray-50">
+      <div className="w-72 rounded-md bg-slate-400 p-4 text-sm text-white antialiased">
         <h2 className="text-lg font-semibold">Users logged:</h2>
         {users.map((user: User) => {
           return <div key={user._id}>{user.name}</div>;

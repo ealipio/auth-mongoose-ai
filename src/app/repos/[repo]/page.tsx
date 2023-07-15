@@ -1,5 +1,5 @@
-import { Suspense } from 'react';
-import Image from 'next/image';
+import { Suspense } from "react";
+import Image from "next/image";
 
 export interface IRepoProps {
   params: string;
@@ -8,7 +8,7 @@ export interface IRepoProps {
 
 const fetchImage = async () => {
   const response = await fetch(process.env.RANDOM_DOG as string, {
-    cache: 'no-store',
+    cache: "no-store",
   });
   const image = await response.json();
   return image;
