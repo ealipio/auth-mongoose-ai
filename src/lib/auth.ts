@@ -3,10 +3,9 @@ import { MongoDBAdapter } from '@auth/mongodb-adapter';
 import type { NextAuthOptions } from 'next-auth';
 import type { Adapter } from 'next-auth/adapters';
 
-import clientPromise from './mongo';
-import { connectAndGetClient } from '@/lib/mongoose';
+import { mongooseConnect } from '@/lib/mongoose';
 
-const mongoDBAdapter = connectAndGetClient();
+const mongoDBAdapter = mongooseConnect();
 
 export const authOptions: NextAuthOptions = {
   adapter: MongoDBAdapter(mongoDBAdapter) as Adapter,

@@ -13,6 +13,12 @@ export function GET(req: Request) {
 export async function POST(req: Request) {
   await mongooseConnect();
   const { author, message } = await req.json();
-  const messageDocument = await Message.create({ author, message });
-  return NextResponse.json(messageDocument);
+  if (author && message) {
+    const messageDocument = await Message.create({ author, message });
+    return NextResponse.json(messageDocument);
+  }
+  return NextResponse.json({
+    error: 'bad request',
+    detail: 'you need to send message and author',
+  });
 }

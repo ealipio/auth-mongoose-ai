@@ -41,7 +41,6 @@ export default async function Home() {
         <LoginButton />
         <LogoutButton />
       </div>
-
       <Chat />
     </main>
   );
