@@ -17,8 +17,11 @@ export async function POST(req: Request) {
     const messageDocument = await Message.create({ author, message });
     return NextResponse.json(messageDocument);
   }
-  return NextResponse.json({
-    error: 'bad request',
-    detail: 'you need to send message and author',
-  });
+  return NextResponse.json(
+    {
+      error: 'bad request',
+      detail: 'you need to send message and author',
+    },
+    { status: 400 }
+  );
 }
